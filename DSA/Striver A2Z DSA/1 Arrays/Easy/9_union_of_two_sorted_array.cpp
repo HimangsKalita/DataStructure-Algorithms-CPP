@@ -36,6 +36,7 @@ vector<int> sortedArray(vector<int> a, vector<int> b)
         unionArr.push_back(a[i]);
       }
       i++;
+      // i++ outiside the if statement because we have iterate as the condition might not meet 
     }
     else
     {
