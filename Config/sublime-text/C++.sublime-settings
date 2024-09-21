@@ -1,0 +1,5 @@
+{
+    "on_pre_save_user": [{
+        "command": "reindent","args": {"single_line": false}
+    }]
+}

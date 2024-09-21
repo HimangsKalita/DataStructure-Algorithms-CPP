@@ -1,0 +1,15 @@
+{
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"theme": "auto",
+	"save_on_focus_lost": true,
+	"margin": 0,
+	"word_wrap": "true",
+
+	// "font_face": "Cascadia Code"
+	"index_files": true,
+}
