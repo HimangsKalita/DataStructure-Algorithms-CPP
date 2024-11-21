@@ -32,23 +32,16 @@ using namespace std;
 
 int main(){
 
-	ios::sync_with_stdio(0);   
-	cin.tie(0);
+    ios::sync_with_stdio(0);   
+    cin.tie(0);
 
-	string str1, str2;
-	getline(cin, str1);
-	getline(cin, str2);
+    string str1, str2;
+    getline(cin, str1);
+    getline(cin, str2);
 
-	cout<<str1.size()<<" "<<str2.size()<<endl;
+    cout<<str1<<endl<<str2;
+    
 
-	cout<<str1+str2<<endl;;
-
-	char first_char = str1[0];
-	str1[0] = str2[0];
-	str2[0] = first_char;
-
-	cout<<str1<<" "<<str2;
-
-	return 0;
+    return 0;
 }
 
