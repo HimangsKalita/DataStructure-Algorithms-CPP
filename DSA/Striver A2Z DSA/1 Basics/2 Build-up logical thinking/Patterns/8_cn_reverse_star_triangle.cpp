@@ -48,32 +48,32 @@ using namespace std;
 
 int main(){
 
-	ios::sync_with_stdio(0);   
-	cin.tie(0);
+    ios::sync_with_stdio(0);   
+    cin.tie(0);
 
-	int n;
-	cin>>n;
+    int n;
+    cin>>n;
 
-	if (n == 1)
-	{
-		cout<<"*";
-	}else {
+    if (n == 1)
+    {
+        cout<<"*";
+    }else {
 
-		for (int row = 0; row < n; ++row)
-		{
-			for (int space = 0; space < row; ++space)
-			{
-				cout<<" ";
-			}
+        for (int row = 0; row < n; ++row)
+        {
+            for (int space = 0; space < row; ++space)
+            {
+                cout<<" ";
+            }
 
-			for (int col = 0; col < 2 * (n-1-row) + 1; ++col)
-			{
-				cout<<"*";
-			}
+            for (int col = 0; col < 2 * (n-1-row) + 1; ++col)
+            {
+                cout<<"*";
+            }
 
-			cout<<"\n";
-		}
-	}
+            cout<<"\n";
+        }
+    }
 
-	return 0;
+    return 0;
 }

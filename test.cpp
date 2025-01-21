@@ -1,49 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int sum(int a, int b) {
+
+    int sum = a+b;
+
+    return sum;
+
+}
+
 int main(){
 
     ios::sync_with_stdio(0);   
     cin.tie(0);
 
-    int t;
-    cin>>t;
+    int arrSize = 5;
 
-    if (1>t || t>100)
+    vector<int> nums(5);
+
+    for (int i = 0; i < arrSize; ++i)
     {
-        return 0;
+        cin>>nums[i];
     }
 
-    while(t--){
-
-        int n;
-        cin>>n;
-
-        if (1 > n || n > 30)
-        {
-            return 0;
-        }
-
-        for (int i = 1; i <= n; ++i)
-        {
-            for (int j = 0, k=n-i; j < 2*n; ++j, ++k)
-            {
-                if (j < i || j >= 2*n-i)
-                {
-                    cout<<"*";
-                }else
-                {
-                    cout<<"#";
-                }
-                
-            }
-
-            cout<<endl;
-        }
-
-        cout<<endl;
-
+    for (int i = 0; i < arrSize; ++i)
+    {
+        cout<<nums[i];
     }
+
 
     return 0;
 }
+
