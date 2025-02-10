@@ -1,44 +1,22 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-int main(){
-
-    ios::sync_with_stdio(0);   
-    cin.tie(0);
-
+int main() {
     int n;
-    cin>>n;
-
-    for (int i = 0; i < 2*n; ++i)
-    {
-
-        if (i<n)
-        {
-            for (int j = 0; j < n-i-1; ++j)
-            {
-                cout<<" ";
-            }
-
-            for (int j = 0; j < (2*i) + 1; ++j)
-            {
-                cout<<"*";
-            }
-        }else {
-
-            for (int j = n; j < i; ++j)
-            {
-                cout<<" ";
-            }
-
-            for (int j = 0; j < 2*(2*n-1-i) + 1; ++j)
-            {
-                cout<<"*";
-            }
+    cin >> n;
+    int size = 2 * n - 1;
+    
+    for (int i = 0; i < size; ++i) {
+        string row;
+        for (int j = 0; j < size; ++j) {
+            int min_dist_i = size - 1 - i;
+            int min_dist_j = size - 1 - j;
+            int min_val = min(min(i, j), min(min_dist_i, min_dist_j));
+            row += to_string(n - min_val);
         }
-
-        cout<<endl;
+        cout << row << endl;
     }
-
+    
     return 0;
 }
-
