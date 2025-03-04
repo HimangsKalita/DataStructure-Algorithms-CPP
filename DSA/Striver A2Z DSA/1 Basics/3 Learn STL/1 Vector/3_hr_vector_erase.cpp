@@ -55,32 +55,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int> &v) {
-
-	for(const auto &i: v) {
-
-		cout<<i<<" ";
-	}
-
-	cout<<"\n";
-}
-
 int main(){
 
-	ios::sync_with_stdio(false);   
-	cin.tie(0);
+    ios::sync_with_stdio(0);   
+    cin.tie(0);
 
-	vector<int> v1 = {1,2,3,4,5};
+    int n;
+    cin>>n;
 
-	for(int &value: v1) {
+    vector<int> v1(n);
 
-		value *= 2;
-		cout<<value<<" ";
-	}
+    for (int i = 0; i < n; ++i)
+    {
+        cin>>v1[i];
+    }
 
+    int q1;
+    cin>>q1;
 
-	cout<<"\n"<<v1[0];
+    v1.erase(v1.begin() + q1 - 1);
 
-	return 0;
+    int q2_a, q2_b;
+    cin>>q2_a>>q2_b;
+
+    v1.erase(v1.begin() + q2_a - 1, v1.begin() + q2_b - 1);
+
+    cout<<v1.size()<<"\n";
+
+    for(const auto& i: v1)
+    {
+        cout<<i<<" ";
+    }
+    cout<<"\n";
+
+    for(const auto& i: vector1)
+    {
+        cout<<i;
+    }
+
+    return 0;
 }
 
