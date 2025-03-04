@@ -1,86 +1,133 @@
-// https://www.hackerrank.com/challenges/vector-erase/problem
+// https://www.hackerrank.com/challenges/cpp-maps/problem?isFullScreen=false
 
-// Vector-Erase
-// Problem
-// Submissions
-// Leaderboard
-// Discussions
+// Maps are a part of the C++ STL.Maps are associative containers that store elements formed by a combination of a key value and a mapped value, following a specific order.The mainly used member functions of maps are:
 
-// You are provided with a vector of
-// integers. Then, you are given queries. For the first query, you are provided with integer, which denotes a position in the vector. The value at this position in the vector needs to be erased. The next query consists of
+//     Map Template:
 
-// integers denoting a range of the positions in the vector. The elements which fall under that range should be removed. The second query is performed on the updated vector which we get after performing the first query.
-// The following are some useful vector functions:
+//     std::map <key_type, data_type>
 
-//     erase(int position):
+//     Declaration:
 
-//     Removes the element present at position.  
-//     Ex: v.erase(v.begin()+4); (erases the fifth element of the vector v)
+//     map<string,int>m; //Creates a map m where key_type is of type string and data_type is of type int.
 
-//     erase(int start,int end):
+//     Size:
 
-//     Removes the elements in the range from start to end inclusive of the start and exclusive of the end.
-//     Ex:v.erase(v.begin()+2,v.begin()+5);(erases all the elements from the third element to the fifth element.)
+//     int length=m.size(); //Gives the size of the map.
+
+//     Insert:
+
+//     m.insert(make_pair("hello",9)); //Here the pair is inserted into the map where the key is "hello" and the value associated with it is 9.
+
+//     Erasing an element:
+
+//     m.erase(val); //Erases the pair from the map where the key_type is val.
+
+//     Finding an element:
+
+//     map<string,int>::iterator itr=m.find(val); //Gives the iterator to the element val if it is found otherwise returns m.end() .
+//     Ex: map<string,int>::iterator itr=m.find("Maps"); //If Maps is not present as the key value then itr==m.end().
+
+//     Accessing the value stored in the key:
+
+//     To get the value stored of the key "MAPS" we can do m["MAPS"] or we can get the iterator using the find function and then by itr->second we can access the value.
+
+// To know more about maps click Here.
+
+// You are appointed as the assistant to a teacher in a school and she is correcting the answer sheets of the students.Each student can have multiple answer sheets.So the teacher has
+
+// queries:
+
+// :Add the marks to the student whose name is
+
+// .
+
+// : Erase the marks of the students whose name is
+
+// .
+
+// : Print the marks of the students whose name is . (If didn't get any marks print
+
+// .)
 
 // Input Format
 
-// The first line of the input contains an integer
-// .The next line contains space separated integers(1-based index).The third line contains a single integer ,denoting the position of an element that should be removed from the vector.The fourth line contains two integers and
+// The first line of the input contains
+// where is the number of queries. The next lines contain query each.The first integer, of each query is the type of the query.If query is of type , it consists of one string and an integer and where is the name of the student and is the marks of the student.If query is of type or ,it consists of a single string where
 
-// denoting the range that should be erased from the vector inclusive of a and exclusive of b.
+// is the name of the student.
 
 // Constraints
 
-
 // Output Format
 
-// Print the size of the vector in the first line and the elements of the vector after the two erase operations in the second line separated by space.
+// For queries of type
+
+// print the marks of the given student.
 
 // Sample Input
 
-// 6
-// 1 4 6 2 8 9
-// 2
-// 2 4
+// 7
+// 1 Jesse 20
+// 1 Jess 12
+// 1 Jess 18
+// 3 Jess
+// 3 Jesse
+// 2 Jess
+// 3 Jess
 
 // Sample Output
 
-// 3
-// 1 8 9
+// 30
+// 20
+// 0
 
-// Explanation
-
-// The first query is to erase the 2nd element in the vector, which is 4. Then, modifed vector is {1 6 2 8 9}, we want to remove the range of 2~4, which means the 2nd and 3rd elements should be removed. Then 6 and 2 in the modified vector are removed and we finally get {1 8 9}
 
 #include <bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int> &v) {
 
-	for(const auto &i: v) {
+int main() {
 
-		cout<<i<<" ";
-	}
+    int q;
+    cin>>q;
+    
+    unordered_map<string, int> student;
+    
+    while(q--) {
 
-	cout<<"\n";
+        int type;
+        cin>>type;
+
+        string name;
+        int marks;
+        map<int, string>::iterator it;
+
+        switch(type) {
+
+        case 1:
+            cin>>name;
+            cin>>marks;
+
+            student[name] = student[name] + marks;
+            break;
+
+        case 2:
+            cin>>name;
+            student.erase(name);
+            break;
+        case 3:
+            cin>>name;
+
+            marks = student[name];
+
+            cout<<marks<<"\n";
+            
+            break;
+
+        default:
+            break;
+        }
+    }
+    
+    return 0;
 }
-
-int main(){
-
-	ios::sync_with_stdio(false);   
-	cin.tie(0);
-
-	vector<int> v1 = {1,2,3,4,5};
-
-	for(int &value: v1) {
-
-		value *= 2;
-		cout<<value<<" ";
-	}
-
-
-	cout<<"\n"<<v1[0];
-
-	return 0;
-}
-
