@@ -31,13 +31,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Brute Force
+// Time - O(n*Log(Max(nums)))
+// Space - O(1)
+
 int smallestDivisor(vector<int>& nums, int threshold) {
 
     int n = nums.size();
 
     long long sum = 0;
-
-    int ans = -1;
 
     int left = 1;
     int right = *max_element(nums.begin(), nums.end());
@@ -51,8 +53,6 @@ int smallestDivisor(vector<int>& nums, int threshold) {
 
             sum += ceil(nums[i]/(double)mid);
         }
-
-        cout<<mid<<" "<<sum<<"\n";
 
         if(sum <= threshold) {
 
